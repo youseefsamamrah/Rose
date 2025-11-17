@@ -1,12 +1,14 @@
 const flower = document.querySelector('.flower');
 const petalCount = 18;
 
+// إنشاء البتلات
 for (let i = 0; i < petalCount; i++) {
     const petal = document.createElement('div');
     petal.classList.add('petal');
+
     const rotate = i * (360 / petalCount);
     petal.style.setProperty('--rotate', `${rotate}deg`);
-    petal.style.transform = `translate(-50%, -50%) rotate(${rotate}deg) scale(0.1)`;
+
     flower.insertBefore(petal, flower.firstChild);
 }
 
@@ -37,20 +39,19 @@ function bloomFlower() {
     });
 }
 
-// إضافة تأثير الطفو للوردة
+// إضافة تأثير الطفو
 flower.classList.add('float');
 
-// فتح الوردة تلقائيًا عند تحميل الصفحة
+// فتح الوردة عند التحميل
 window.addEventListener('load', () => {
     setTimeout(bloomFlower, 500);
 });
 
-// تأثيرات إضافية عند التحويم
+// مساكة hover على المركز
 const center = document.querySelector('.center');
 center.addEventListener('mouseover', () => {
-    center.style.transform = 'scale(1.15)';
+    center.style.transform = 'translate(-50%, -50%) scale(1.15)';
 });
-
 center.addEventListener('mouseout', () => {
-    center.style.transform = 'scale(1)';
+    center.style.transform = 'translate(-50%, -50%) scale(1)';
 });
